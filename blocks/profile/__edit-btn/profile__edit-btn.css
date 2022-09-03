@@ -10,7 +10,7 @@
     margin-left: 18px;
     grid-area: edit-button;
     box-sizing: border-box;
-    cursor: pointer;
+   
 }
 
 .profile__edit-btn:hover {
