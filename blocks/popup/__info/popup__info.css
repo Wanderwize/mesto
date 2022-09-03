@@ -1,0 +1,15 @@
+.popup__info {
+    display: flex;
+    flex-direction: column;
+    width: 358px;
+    margin: 0 auto;
+    margin-left: 36px;
+    margin-top: 54px;
+}
+
+@media screen and (max-width: 514px) {
+    .popup__info {
+        max-width: 238px;
+        margin-left: 22px;
+    }
+}

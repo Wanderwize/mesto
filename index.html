@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+
+
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header__logo">
+                <img src="./images/vector.png" alt="">
+            </div>
+        </header>
+        <main>
+            <section class="profile">
+
+                <img src="./images/image.jpg" alt="" class="profile__image">
+
+                <div class="profile__info">
+
+                    <h1 class="profile__info-title">Жак-Ив Кусто</h1>
+                    <h2 class="profile__info-subtitle">Исследователь океана</h2>
+
+                    <button class="profile__edit-btn">
+
+                    </button>
+
+
+
+                </div>
+                <div class="profile__add">
+                    <button class="profile__add-btn">
+                        <img src="./images/vectorkrest.png" alt="">
+                    </button>
+                </div>
+            </section>
+            <section class="elements">
+                <div class="card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="" class="card__image">
+                    <div class="card__name">
+                        <p class="card__name-title">Карачаевск</p>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.png" alt="" class="card__image">
+                    <div class="card__name">
+                        <p class="card__name-title">Гора Эльбрус</p>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.png" alt="" class="card__image">
+                    <div class="card__name">
+                        <p class="card__name-title">Домбай</p>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1404681-unsplash.png" alt="" class="card__image">
+                    <div class="card__name">
+                        <p class="card__name-title">Гора Эльбрус</p>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1556355-unsplash.png" alt="" class="card__image">
+                    <div class="card__name">
+                        <p class="card__name-title">Домбай</p>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="" class="card__image">
+                    <div class="card__name">
+                        <p class="card__name-title">Карачаевск</p>
+                        <button class="card__like"></button>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <p class="footer__copyright">© 2020 Mesto Russia</p>
+            </footer>
+
+        </main>
+        <div class="popup">
+            <div class="popup__form">
+                <div class="popup__content">
+                    <button class="popup__close"></button>
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form>
+                        <div class="popup__info">
+                            <input class="popup__input popup__input_firstname" type="text" name="firstname">
+                            <input class="popup__input popup__input_lastname" type="text" name="lastname">
+                            <p class="popup__save-txt"><button class="popup__save-btn" type="submit">Сохранить</button>
+                            </p>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>
