@@ -14,7 +14,7 @@
 * Гит
 * JavaScript
 
-[Ознакомиться с проектом можно по ссылке](https://wanderwize.github.io/russian-travel/)
+[Ознакомиться с проектом можно по ссылке](https://wanderwize.github.io/mesto/)
  
 
 
