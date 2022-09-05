@@ -8,13 +8,14 @@
   margin: 0;
   margin-left: auto;
   margin-top: 35px;
-
 }
 
-@media screen and (max-width: 622px) {
+@media screen and (max-width: 670px) {
   .profile__add {
     margin: 0 auto;
     padding-top: 36px;
     width: 282px;
+    background-size: 16px 16px;
+    background-position: top;
   }
 }

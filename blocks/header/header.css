@@ -5,3 +5,14 @@
   border-bottom: 1px solid #545454;
   padding-top: 45px;
 }
+
+@media screen and (max-width: 290px) {
+  .header {
+    max-width: 880px;
+    margin: 0 auto;
+    margin-top: 20px;
+    min-height: 74px;
+    border-bottom: 1px solid #545454;
+    padding-top: 45px;
+  }
+}

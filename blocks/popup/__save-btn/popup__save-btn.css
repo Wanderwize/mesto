@@ -7,10 +7,11 @@
   color: #FFFFFF;
   cursor: pointer;
   margin-bottom: 37px;
+  border: none;
 }
 
 .popup__save-btn:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 514px) {

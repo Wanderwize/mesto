@@ -1,5 +1,5 @@
 .profile__info-title {
-  font-family: 'Inter';
+  font-family: "Inter", "Arial ", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
@@ -13,15 +13,15 @@
   grid-area: name;
 }
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 670px) {
   .profile__info-title {
     max-width: 189px;
     font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
     font-size: 27px;
     line-height: 33px;
     text-align: center;
     max-height: 54px;
   }
 }
+
+

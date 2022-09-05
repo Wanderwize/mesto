@@ -1,9 +1,17 @@
 .header__logo {
   max-width: 142px;
+  height: 33px;
+  background-image: url(../../../images/Vectorlogotip.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 142px 33px;
 }
 
 @media screen and (max-width: 890px) {
   .header__logo {
     margin-left: 24px;
+    padding-bottom: 25px;
+    max-width: 103px;
+    background-size: 103px 25px;
   }
 }
