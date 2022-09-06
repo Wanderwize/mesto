@@ -1,27 +1,31 @@
 let popup = document.querySelector('.popup');
-let changeName = document.querySelector('.popup__input_firstname');
-let userJobInput = document.querySelector('.popup__input_lastname');
-let userNameInput = document.querySelector('.profile__info-title');
+let userNameInput = document.querySelector('.popup__input_name_value');
+let userJobInput = document.querySelector('.popup__input_about_value');
+let userName = document.querySelector('.profile__info-title');
 let userJob = document.querySelector('.profile__info-subtitle');
-let popupCloseButton = document.querySelector('.popup__close')
+let popupCloseButton = document.querySelector('.popup__close');
+let profileEditButton = document.querySelector('.profile__edit-btn');
+let popupForm = document.querySelector('.popup__container');
 
 function openPopup() {
-  popup.classList.add('popup__open');
+  popup.classList.add('popup_opened');
+  userNameInput.value = userName.textContent;
+  userJobInput.value = userJob.textContent;
 };
-
-document.querySelector('.profile__edit-btn').addEventListener("click", openPopup);
 
 function closePopup() {
-  popup.classList.remove('popup__open');
+  popup.classList.remove('popup_opened');
 };
+
+profileEditButton.addEventListener("click", openPopup);
 
 popupCloseButton.addEventListener("click", closePopup);
 
-document.querySelector('.popup__save-btn').addEventListener("click", function changeInfo(evt) {
+popupForm.addEventListener("submit", function changeInfo(evt) {
   evt.preventDefault();
-  userNameInput.textContent = `${changeName.value}`;
-  userJob.textContent = `${userJobInput.value}`;
-  popup.classList.remove('popup__open');
+  userName.textContent = userNameInput.value;
+  userJob.textContent = userJobInput.value;
+  closePopup();
 });
 
 

@@ -16,12 +16,8 @@
 @media screen and (max-width: 670px) {
   .profile__info-title {
     max-width: 189px;
-    font-family: 'Inter';
     font-size: 27px;
     line-height: 33px;
     text-align: center;
-    max-height: 54px;
   }
 }
-
-

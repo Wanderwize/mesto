@@ -8,6 +8,14 @@
   cursor: pointer;
   margin-bottom: 37px;
   border: none;
+  margin-top: 25px;
+  font-family: "Inter", "Arial ", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
 }
 
 .popup__save-btn:hover {
@@ -17,5 +25,9 @@
 @media screen and (max-width: 514px) {
   .popup__save-btn {
     max-width: 238px;
+    margin-bottom: 15px;
+    margin-top: 35px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
