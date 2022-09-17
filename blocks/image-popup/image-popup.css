@@ -1,4 +1,6 @@
-.popup {
+.image-popup {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
@@ -11,6 +13,5 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.3s, opacity 0.3s linear;
+
 }
-
-
