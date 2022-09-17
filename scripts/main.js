@@ -1,5 +1,5 @@
 let popup = document.querySelector('.popup');
-const popupCard = document.querySelector('.popup__add-card')
+const popupCard = document.querySelector('.popup_add-card')
 const userNameInput = document.querySelector('.popup__input_name_value');
 const userJobInput = document.querySelector('.popup__input_about_value');
 let userName = document.querySelector('.profile__info-title');
@@ -7,10 +7,10 @@ let userJob = document.querySelector('.profile__info-subtitle');
 let popupCloseButton = document.querySelector('.popup__close');
 let profileEditButton = document.querySelector('.profile__edit-btn');
 let popupForm = document.querySelector('.popup__container');
-const cardForm = document.querySelector('.popup__container-add');
+const cardForm = document.querySelector('.popup_container-add');
 const cardContiner = document.querySelector('.elements');
 const addCardButton = document.querySelector('.profile__add-btn');
-const popupAddCloseButton = document.querySelector('.popup__close-card');
+const popupAddCloseButton = document.querySelector('.popup_close-card');
 const closeImageButton = document.querySelector('.image-popup__close');
 
 function closeImagePopup() {
