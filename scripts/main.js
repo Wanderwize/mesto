@@ -14,8 +14,6 @@ const popupAddCloseButton = document.querySelector('.popup__close-card');
 const closeImageButton = document.querySelector('.image-popup__close');
 const popupImage = document.querySelector('.image-popup');
 
-
-
 function openPopup(item) {
   item.classList.add('popup_opened');
 };
