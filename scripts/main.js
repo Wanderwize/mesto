@@ -13,9 +13,20 @@ const addCardButton = document.querySelector('.profile__add-btn');
 const popupAddCloseButton = document.querySelector('.popup__close-card');
 const closeImageButton = document.querySelector('.image-popup__close');
 const popupImage = document.querySelector('.image-popup');
+const page = document.querySelector('.page')
+const popup = document.querySelector('.popup')
+const button = document.querySelector('.popup__save-btn')
+
+document.addEventListener('mousedown', function (evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target)
+    console.log('еще счетчик нажатий')
+  }
+})
 
 function openPopup(item) {
   item.classList.add('popup_opened');
+
 };
 
 function closePopup(item) {
@@ -26,16 +37,42 @@ popupAddCloseButton.addEventListener("click", function () {
   closePopup(popupCard)
 });
 
+function addPopupListener(evt) {
+  const popupArray = document.querySelectorAll('.popup')
+  Array.from(popupArray)
+  if (evt.key == 'Escape') {
+    closePopup(evt.target)
+    console.log('счетчик нажатий')
+    popupArray.forEach(function (item) {
+      item.classList.remove('popup_opened')
+    })
+    document.removeEventListener('keydown', addPopupListener)
+  } else (!evt.key == 'Escape')
+}
+
+function deletePopupListener() {
+  profileEditButton.removeEventListener('keydown', addPopupListener)
+  console.log('счетчик нажатий2')
+}
+
 addCardButton.addEventListener("click", function () {
   openPopup(popupCard)
+  document.addEventListener('keydown', addPopupListener)
+  document.forms.add.reset()
 });
 
 profileEditButton.addEventListener("click", function () {
   openPopup(popupEditProfile)
+  //addPopupListener(popupEditProfile)
+  document.addEventListener('keydown', addPopupListener)
+  button.removeAttribute('disabled')
+  button.classList.remove('popup__save-btn_unactive')
+
 });
 
 popupCloseButton.addEventListener("click", function () {
   closePopup(popupEditProfile)
+
 });
 
 closeImageButton.addEventListener('click', function () {
@@ -46,7 +83,6 @@ profileEditButton.addEventListener("click", function () {
   openPopup(popupEditProfile);
   userNameInput.value = userName.textContent;
   userJobInput.value = userJob.textContent;
-
 });
 
 formEditProfile.addEventListener("submit", function changeInfo(evt) {
@@ -95,6 +131,7 @@ function openImage() {
   document.querySelector('.image-popup').classList.add('popup_opened')
   document.querySelector('.image-popup__window').src = event.currentTarget.closest('.card__image').src
   document.querySelector('.image-popup__subtitle').textContent = event.currentTarget.closest('.card__image').alt
+  document.addEventListener('keydown', addPopupListener)
 };
 
 const inputCardName = document.querySelector('.popup__input_place_value');
