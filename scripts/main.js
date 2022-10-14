@@ -52,8 +52,6 @@ addCardButton.addEventListener("click", function () {
   document.forms.add.reset()
 });
 
-
-
 editProfileCloseButton.addEventListener("click", function () {
   closePopup(popupEditProfile)
 });
