@@ -6,6 +6,9 @@
   border-radius: 10px;
   position: relative;
 }
+.card:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 910px) {
   .card {
