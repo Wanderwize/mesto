@@ -1,7 +1,6 @@
-export { likeCard, deleteCard,  openImage, closePopup, formAddCard, inputCardName, inputCardLink, popupCard, popupFormAdd, popupFormUser, formElements, inputElement, validationObject  };
-import {FormValidator} from './validate.js' ;
-import { Card } from './Card.js' ;
-
+export { likeCard, deleteCard, openImage, closePopup, formAddCard, inputCardName, inputCardLink, popupCard, popupFormAdd, popupFormUser, formElements, inputElement, validationObject };
+import { FormValidator } from './validate.js';
+import { Card } from './Card.js';
 
 const initialCards = [
   {
@@ -30,7 +29,6 @@ const initialCards = [
   }
 ];
 
-
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupCard = document.querySelector('.popup_add-card')
 const userNameInput = document.querySelector('.popup__input_name_value');
@@ -50,6 +48,19 @@ const page = document.querySelector('.page')
 const popup = document.querySelector('.popup')
 const profileContainer = document.querySelector('.profile__info')
 const editProfileSaveButton = popupEditProfile.querySelector('.popup__save-btn')
+const inputCardName = document.querySelector('.popup__input_place_value');
+const inputCardLink = document.querySelector('.popup__input_link_value')
+const popupFormAdd = document.querySelector('.popup__form-add');
+const popupFormUser = document.querySelector('.popup__form-user');
+const formElements = document.querySelector('.popup__form')
+const inputElement = document.querySelector('.popup__input')
+const validationObject = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__save-btn",
+  inactiveButtonClass: "popup__save-btn_unactive",
+  inputErrorClass: "popup__input_type_error",
+}
 
 document.addEventListener('mousedown', function (evt) {
   if (evt.target.classList.contains('popup_opened') && evt.button == 0) {
@@ -108,8 +119,6 @@ formEditProfile.addEventListener("submit", function changeInfo(evt) {
   closePopup(popupEditProfile);
 });
 
-
-
 function likeCard(evt) {
   evt.target.classList.toggle('card__like')
 };
@@ -134,35 +143,17 @@ initialCards.forEach((item) => {
   renderCard(item.name, item.link, '#card__template')
 })
 
- formAddCard.addEventListener('submit', function (evt) {
-   evt.preventDefault()
-   renderCard(inputCardName.value, inputCardLink.value, '#card__template')
-   closePopup(popupCard)
- })
+formAddCard.addEventListener('submit', function (evt) {
+  evt.preventDefault()
+  renderCard(inputCardName.value, inputCardLink.value, '#card__template')
+  closePopup(popupCard)
+})
 
- function renderCard(name, link, templateSelector) {
+function renderCard(name, link, templateSelector) {
   const userCard = new Card(name, link, templateSelector)
   const cardElement = userCard.generateCard()
   return cardElement
 }
-
-
-
- const inputCardName = document.querySelector('.popup__input_place_value');
- const inputCardLink = document.querySelector('.popup__input_link_value')
- const popupFormAdd = document.querySelector('.popup__form-add');
-const popupFormUser = document.querySelector('.popup__form-user');
-const formElements = document.querySelector('.popup__form')
-const inputElement = document.querySelector('.popup__input')
-
-const validationObject = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__save-btn",
-  inactiveButtonClass: "popup__save-btn_unactive",
-  inputErrorClass: "popup__input_type_error",
-}
-
 
 enableUserValidation(validationObject, popupFormAdd)
 enableUserValidation(validationObject, popupFormUser)
