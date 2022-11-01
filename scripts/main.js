@@ -1,3 +1,36 @@
+export { likeCard, deleteCard,  openImage, closePopup, formAddCard, inputCardName, inputCardLink, popupCard, popupFormAdd, popupFormUser, formElements, inputElement, validationObject  };
+import {FormValidator} from './validate.js' ;
+import { Card } from './Card.js' ;
+
+
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
+
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupCard = document.querySelector('.popup_add-card')
 const userNameInput = document.querySelector('.popup__input_name_value');
@@ -75,32 +108,7 @@ formEditProfile.addEventListener("submit", function changeInfo(evt) {
   closePopup(popupEditProfile);
 });
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+
 
 function likeCard(evt) {
   evt.target.classList.toggle('card__like')
@@ -117,57 +125,44 @@ function openImage(evt) {
   document.addEventListener('keydown', closePopupByEsc)
 };
 
- const inputCardName = document.querySelector('.popup__input_place_value');
- const inputCardLink = document.querySelector('.popup__input_link_value')
-
-class Card {
-  constructor(name, link, templateSelector) {
-    this._name = name;
-    this._link = link;
-    this._templateSelector = templateSelector
-  }
-
-  _getTemplate() {
-    const cardElement = document
-    .querySelector('#card__template')
-    .content
-    .querySelector('.card')
-    .cloneNode(true)
-
-    return cardElement;
-  }
-
-  _setEventListeners() {
-    this._element = this._getTemplate()
-    this._element.querySelector('.card__like').addEventListener('click', likeCard);
-    this._element.querySelector('.card__trash').addEventListener('click', deleteCard);
-    this._element.querySelector('.card__image').addEventListener('click', openImage)
-}
-
-  generateCard() {
-  this._setEventListeners()
-  this._element.querySelector('.card__image').src = this._link;
-  this._element.querySelector('.card__image').alt = this._name;
-  this._element.querySelector('.card__name-title').textContent = this._name;
-  document.querySelector('.elements').prepend( this._element)
-  return this._element
-  }
+function enableUserValidation(objects, formElement) {
+  const formUser = new FormValidator(objects, formElement)
+  const validationElement = formUser.enableValidation()
 }
 
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, '#card__template')
-  const cardElement = card.generateCard()
-  document.querySelector('.elements').append(cardElement);
+  renderCard(item.name, item.link, '#card__template')
 })
 
-function renderCard(name, link, templateSelector) {
+ formAddCard.addEventListener('submit', function (evt) {
+   evt.preventDefault()
+   renderCard(inputCardName.value, inputCardLink.value, '#card__template')
+   closePopup(popupCard)
+ })
+
+ function renderCard(name, link, templateSelector) {
   const userCard = new Card(name, link, templateSelector)
   const cardElement = userCard.generateCard()
   return cardElement
 }
 
-formAddCard.addEventListener('submit', function (evt) {
-  evt.preventDefault()
-  renderCard(inputCardName.value, inputCardLink.value, '#card__template')
-  closePopup(popupCard)
-})
+
+
+ const inputCardName = document.querySelector('.popup__input_place_value');
+ const inputCardLink = document.querySelector('.popup__input_link_value')
+ const popupFormAdd = document.querySelector('.popup__form-add');
+const popupFormUser = document.querySelector('.popup__form-user');
+const formElements = document.querySelector('.popup__form')
+const inputElement = document.querySelector('.popup__input')
+
+const validationObject = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__save-btn",
+  inactiveButtonClass: "popup__save-btn_unactive",
+  inputErrorClass: "popup__input_type_error",
+}
+
+
+enableUserValidation(validationObject, popupFormAdd)
+enableUserValidation(validationObject, popupFormUser)

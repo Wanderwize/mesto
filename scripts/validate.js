@@ -1,15 +1,4 @@
-const formElements = document.querySelector('.popup__form')
-const inputElement = document.querySelector('.popup__input')
-
-const validationObject = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__save-btn",
-  inactiveButtonClass: "popup__save-btn_unactive",
-  inputErrorClass: "popup__input_type_error",
-}
-
-class FormValidator {
+export class FormValidator {
   constructor(objects, formElement) {
     this._objects = objects;
     this._formElements = formElement;
@@ -78,16 +67,6 @@ class FormValidator {
   }
 }
 
-function enableUserValidation(objects, formElement) {
-  const formUser = new FormValidator(objects, formElement)
-  const validationElement = formUser.enableValidation()
-}
-function enableImageValidation(objects, formElement) {
-  const formImage = new FormValidator(objects, formElement)
-  const validationElement = formImage.enableValidation()
-}
-const popupFormAdd = document.querySelector('.popup__form-add');
-const popupFormUser = document.querySelector('.popup__form-user');
 
-enableUserValidation(validationObject, popupFormAdd)
-enableUserValidation(validationObject, popupFormUser)
+
+
