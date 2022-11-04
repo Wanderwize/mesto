@@ -71,15 +71,12 @@ formEditProfile.addEventListener("submit", function changeInfo(evt) {
 
 });
 
-function enableUserValidation(objects, formElement) {
-  const formUser = new FormValidator(objects, formElement)
-  const validationElement = formUser.enableValidation()
-}
 
-function enableAddValidation(objects, formElement) {
-  const formAdd = new FormValidator(objects, formElement)
-  const validationElement = formAdd.enableValidation()
-}
+  const formUser = new FormValidator(validationObject, popupFormAdd)
+  const validationUserForm = formUser.enableValidation()
+  const formAdd = new FormValidator(validationObject, popupFormUser)
+  const validationAddForm = formAdd.enableValidation()
+
 
 initialCards.forEach((item) => {
   renderCard(item.name, item.link, '#card__template')
@@ -95,9 +92,8 @@ formAddCard.addEventListener('submit', function (evt) {
 
 function renderCard(name, link, templateSelector) {
   const userCard = new Card(name, link, templateSelector)
-  const cardElement = userCard.generateCard()
+  const cardElement = userCard.generateCard(document.querySelector('.elements'))
   return cardElement
 }
 
-enableUserValidation(validationObject, popupFormAdd)
-enableAddValidation(validationObject, popupFormUser)
+

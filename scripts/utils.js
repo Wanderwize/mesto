@@ -1,6 +1,4 @@
-function deleteCard(evt) {
-  evt.target.closest('.card').remove()
-}
+
 
 const popupImageOpen = document.querySelector('.image-popup')
 
@@ -40,4 +38,4 @@ function closePopupByEsc(evt) {
   }
 }
 
-export { deleteCard, openImage, closePopupByEsc, openPopup, closePopup, popupImageOpen }
+export { openImage, closePopupByEsc, openPopup, closePopup, popupImageOpen }
