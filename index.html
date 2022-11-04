@@ -53,12 +53,12 @@
 
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form popup__form-user" name="user" id="form_user" novalidate>
-          <input id="name" class="popup__input popup__input_name_value" placeholder="Имя" type="text" name="name" required
-            minlength="2" maxlength="40" >
-            <span id="name-error" class="error"></span>
-          <input id="about" class="popup__input popup__input_about_value" placeholder="Род деятельности" type="text" name="about" required
-            minlength="2" maxlength="200" >
-            <span id="about-error" class="error"></span>
+          <input id="name" class="popup__input popup__input_name_value" placeholder="Имя" type="text" name="name"
+            required minlength="2" maxlength="40">
+          <span id="name-error" class="error"></span>
+          <input id="about" class="popup__input popup__input_about_value" placeholder="Род деятельности" type="text"
+            name="about" required minlength="2" maxlength="200">
+          <span id="about-error" class="error"></span>
           <button class="popup__save-btn popup__save-btn_unactive" type="submit" disabled>Сохранить</button>
         </form>
       </div>
@@ -69,13 +69,14 @@
         <button type="button" class="popup__close popup__close-card"></button>
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form popup__form-add" name="add" id="form_add" novalidate>
-          <input id="title" class="popup__input popup__input_name_value popup__input_place_value" type="text" name="title"
-            placeholder="Название" required minlength="2" maxlength="30">
-            <span id="title-error" class="error"></span>
+          <input id="title" class="popup__input popup__input_name_value popup__input_place_value" type="text"
+            name="title" placeholder="Название" required minlength="2" maxlength="30">
+          <span id="title-error" class="error"></span>
           <input id="link" class="popup__input popup__input_about_value popup__input_link_value" type="url" name="link"
             placeholder="Ссылка на картинку" required>
-            <span id="link-error" class="error"></span>
-          <button class="popup__save-btn popup__save-btn_unactive" type="submit" disabled>Сохранить</button>
+          <span id="link-error" class="error"></span>
+          <button class="popup__save-btn popup__save-btn_unactive add-card_button" type="submit"
+            disabled>Сохранить</button>
         </form>
       </div>
     </div>
@@ -91,8 +92,8 @@
     </div>
   </div>
   <script type="module" src="./scripts/main.js"></script>
-  <script type="module" src="./scripts/validate.js"></script>
-  <script type="module" src="./scripts/Card.js"></script>
+
+
 
 </body>
 
