@@ -61,7 +61,7 @@ profileEditButton.addEventListener("click", function () {
   profileEditSaveButton.classList.remove('popup__save-btn_unactive')
 });
 
-const popupAddSaveButton = document.querySelector('.add-card_button')
+const popupAddSaveButton = document.querySelector('.add__card-button')
 
 formEditProfile.addEventListener("submit", function changeInfo(evt) {
   evt.preventDefault();
