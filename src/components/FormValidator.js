@@ -56,6 +56,10 @@ export class FormValidator {
         this._toggleInputErrorState(inputElement)
       });
     });
+
+  }
+
+  cleanError() {
     this._inputList.forEach((inputElement) => {
       this._hideError(inputElement);
     });
