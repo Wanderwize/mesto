@@ -43,3 +43,5 @@ export const userNameInput = document.querySelector('.popup__input_name_value');
 export const userJobInput = document.querySelector('.popup__input_about_value');
 export const profileSelector = document.querySelector('.profile')
 export const popupAddSaveButton = document.querySelector('.popup__save-button')
+export const infoTitle = document.querySelector('#name')
+export const infoSubtitle = document.querySelector('#about')

@@ -1,11 +1,10 @@
 import {Popup} from './Popup.js';
-import { FormValidator } from './FormValidator.js';
 
 export class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector)
-    this._image = this._popupSelector.querySelector('.image-popup__window')
-    this._title = this._popupSelector.querySelector('.image-popup__subtitle')
+    this._image = this._popup.querySelector('.image-popup__window')
+    this._title = this._popup.querySelector('.image-popup__subtitle')
 
   }
 

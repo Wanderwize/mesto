@@ -16,8 +16,8 @@ import {
   profileEditButton,
   userJobInput,
   userNameInput,
-  profileSelector,
-  popupAddSaveButton,
+  infoTitle,
+  infoSubtitle
 
 
 } from '../components/constants.js';
@@ -59,7 +59,7 @@ const popupAddCard = new PopupWithForm('#popup-add-card', {
 })
 popupAddCard.setEventListeners()
 
-const userInfo = new UserInfo(profileSelector);
+const userInfo = new UserInfo('#name', '#about' );
 
 const popupWithInfoForm = new PopupWithForm('.popup_edit-profile', {
   submit: (item) => {
@@ -81,9 +81,8 @@ profileEditButton.addEventListener('click', () => {
 popupCardOpenButton.addEventListener('click', () => {
   popupAddCard.open();
   formUser.cleanError()
-  popupAddSaveButton.setAttribute("disabled", true);
-  popupAddSaveButton.classList.add('popup__save-btn_unactive')
   formAdd.cleanError()
+  formAdd.disableButton()
 });
 
 defaultCardList.renderItems();
