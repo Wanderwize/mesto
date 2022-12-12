@@ -3,7 +3,7 @@ export class UserInfo {
 
     this._name = document.querySelector(name)
     this._about = document.querySelector(about)
-    this._avatar = document.querySelector('.profile__avatar_image')
+    this._avatar = document.querySelector('.profile__avatar-image')
   }
 
   getUserInfo() {

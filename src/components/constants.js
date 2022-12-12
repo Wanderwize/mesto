@@ -48,7 +48,7 @@ export const infoTitle = document.querySelector('#name')
 export const infoSubtitle = document.querySelector('#about')
 export const avatarEditBtn = document.querySelector('.profile__avatar-button')
 export const avatarEditPopup = document.querySelector('.popup_edit-avatar')
-export const avatarImage = document.querySelector('.profile__avatar_image')
+export const avatarImage = document.querySelector('.profile__avatar-image')
 export const setLike = document.querySelector('.card__like')
 export const deleteButton = document.querySelector('.card__trash')
 

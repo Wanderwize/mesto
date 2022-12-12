@@ -118,7 +118,7 @@ api.getInitialData()
     console.log(err);
   })
 
-const popupWithOk = new PopupWithOk('.popup__delete', {
+const popupWithOk = new PopupWithOk('#popup-delete', {
   submit: (data) => {
     api.deleteCard(data)
       .then(() => {
