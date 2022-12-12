@@ -17,10 +17,13 @@
     </header>
     <main>
       <section class="profile">
-        <img src="<%=require('./images/image.jpg')%>" alt="Аватарка" class="profile__image">
+        <div class="profile__avatar_container">
+          <img src="#" alt="" id="avatar" class="profile__avatar_image">
+          <button class="profile__avatar-button"></button>
+        </div>
         <div class="profile__info">
-          <h1 class="profile__info-title" id="name">Жак-Ив Кусто</h1>
-          <h2 class="profile__info-subtitle" id="about"> Исследователь океана</h2>
+          <h1 class="profile__info-title" id="name"></h1>
+          <h2 class="profile__info-subtitle" id="about"></h2>
           <button type="button" class="profile__edit-btn">
           </button>
         </div>
@@ -39,7 +42,10 @@
         <img class="card__image" src="#" alt="">
         <div class="card__name">
           <h2 class="card__name-title"></h2>
-          <button type="button" class="card__like card__like_active"></button>
+          <div class="card__like-container">
+            <button type="button" class="card__like card__like_active"></button>
+            <p class="card__like-counter">123</p>
+          </div>
         </div>
       </div>
     </template>
@@ -55,14 +61,16 @@
         <form class="popup__form popup__form-user" name="user" id="form_user" novalidate>
           <input id="username" class="popup__input popup__input_name_value" placeholder="Имя" type="text" name="name"
             required minlength="2" maxlength="40">
-          <span id="name-error" class="error"></span>
+          <span id="username-error" class="error"></span>
           <input id="userabout" class="popup__input popup__input_about_value" placeholder="Род деятельности" type="text"
             name="about" required minlength="2" maxlength="200">
-          <span id="about-error" class="error"></span>
+          <span id="userabout-error" class="error"></span>
           <button class="popup__save-btn popup__save-btn_unactive" type="submit" disabled>Сохранить</button>
         </form>
       </div>
     </div>
+
+
 
     <section class="popup popup_add-card" id="popup-add-card">
       <div class="popup__container popup__container-add">
@@ -75,11 +83,37 @@
           <input id="link" class="popup__input popup__input_about_value popup__input_link_value" type="url" name="link"
             placeholder="Ссылка на картинку" required>
           <span id="link-error" class="error"></span>
-          <button class="popup__save-btn popup__save-btn_unactive popup__save-button" type="submit"
-            disabled id="popup-save-btn">Сохранить</button>
+          <button class="popup__save-btn popup__save-btn_unactive popup__save-button" type="submit" disabled
+            id="popup-save-btn">Сохранить</button>
         </form>
       </div>
     </section>
+
+
+    <div class="popup  popup_edit-avatar" id="popup-avatar">
+      <div class="popup__container popup__container-edit">
+        <button type="button" class="popup__close popup__close-edit"></button>
+
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__user-avatar" name="user" id="form_user" novalidate>
+          <input id="useravatar" class="popup__input" placeholder="Ссылка на изображение" type="url" name="avatar"
+            required minlength="2" m>
+          <span id="useravatar-error" class="error"></span>
+
+          <button class="popup__save-btn popup__save-btn_unactive popup__avatar" type="submit" disabled>Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup__delete" id="popup__delete">
+      <div class="popup__container popup__container-edit">
+        <button type="button" class="popup__close popup__close-edit"></button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="popup__form popup__form-delete"  id="form_delete" novalidate>
+          <button class="popup__save-btn popup__delete-btn" type="submit" >Удалить</button>
+        </form>
+      </div>
+    </div>
 
     <section class="popup image-popup" id="image-popup">
       <div class="image-popup__container">
@@ -87,7 +121,7 @@
         <img src="#" class="image-popup__window" alt="">
         <h2 class="image-popup__subtitle"></h2>
       </div>
-      </section>
+    </section>
 
 
 

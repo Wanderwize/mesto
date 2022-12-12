@@ -1,12 +1,18 @@
+import { Api } from '../components/api.js';
+
 export class Card {
-  constructor(data, templateSelector, handleCardClick) {
+  constructor(data, templateSelector,  ownerId, {setLike, deleteLike, handleCardClick, deleteCard}) {
     this._handleCardClick = handleCardClick
+    this._deleteCard = deleteCard;
     this._data = data
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector
     this._cards = this._element
-  }
+    this._setLike = setLike;
+    this._deleteLike = deleteLike;
+    this._ownerId = ownerId;
+}
 
   _getTemplate() {
     const cardElement = document
@@ -18,36 +24,61 @@ export class Card {
     return cardElement;
   }
 
-  setLike() {
-    this._cardLike.classList.toggle('card__like');
+  delete(item) {
+    item.remove();
+    item = null
   }
 
-  _setEventListeners() {
+  setLike(data) {
+    this._cardLike.classList.remove('card__like');
+    this._setLike(data)
+}
+
+setDislike(data) {
+  this._cardLike.classList.add('card__like');
+  this._deleteLike(data)
+}
+
+_setEventListeners() {
     this._element = this._getTemplate()
     this._cardLike = this._element.querySelector('.card__like_active')
+    this._cardLikeCount = this._element.querySelector('.card__like-counter')
     this._cardImage = this._element.querySelector('.card__image')
     this._cardImage.addEventListener('click', () => this._handleCardClick(this.data));
-    this._element.querySelector('.card__trash').addEventListener('click', () => {
-      this.deleteCard()
-    });
+     this._element.querySelector('.card__trash').addEventListener('click', this._deleteCard)
     this._cardLike.addEventListener('click', () => {
-      this.setLike()
+      if(this._cardLike.classList.contains('card__like')) {
+        this.setLike(this._data)
+      } else {
+        this.setDislike(this._data)
+      }
     })
-
-  }
+}
 
   deleteCard() {
     this._element.remove()
     this._element = null;
   }
 
+  checkOwner() {
+if(this._data.owner._id !== this._ownerId) {
+      this.delete(this._cardTrash)
+    }
+  }
+
+  setLikeCounter(data) {
+this._element.querySelector('.card__like-counter').textContent = String(data.likes.length)
+  }
+
   createCard() {
-    this._setEventListeners()
+this._setEventListeners()
+    this._cardTrash = this._element.querySelector('.card__trash')
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._element.querySelector('.card__name-title').textContent = this._name;
-
-    return this._element;
+this.setLikeCounter(this._data)
+    this.checkOwner(this._data)
+return this._element;
   }
 }
 
