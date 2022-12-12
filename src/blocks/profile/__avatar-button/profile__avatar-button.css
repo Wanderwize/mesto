@@ -1,13 +1,4 @@
 .profile__avatar-button {
-  width: 120px;
-  height: 120px;
-  background-size: 120px 120px;
-  position: relative;
-  right: 120px;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.profile__avatar-button {
   padding: 0;
   border: 0;
   background: none;
