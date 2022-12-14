@@ -14,9 +14,9 @@ export class Section {
   }
 
   renderItems(cardsData) {
-    cardsData.forEach(card => {
+    cardsData.reverse().forEach(card => {
       this._renderer(card);
-      
+
     })
   }
 }

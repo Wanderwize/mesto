@@ -51,4 +51,5 @@ export const avatarEditPopup = document.querySelector('.popup_edit-avatar')
 export const avatarImage = document.querySelector('.profile__avatar-image')
 export const setLike = document.querySelector('.card__like')
 export const deleteButton = document.querySelector('.card__trash')
-
+export const tagClass = document.querySelector('.tagclass')
+export const popupAvatarButton = document.querySelector('.popup__avatar')
