@@ -57,8 +57,6 @@ const api = new Api({
   }
 })
 
-
-
 const createNewCard = (data) => {
   const card = new Card(data, '#card__template', ownerId, {
     handleCardClick: () => {
@@ -67,10 +65,9 @@ const createNewCard = (data) => {
     deleteCard: () => {
       tempCard = card;
       popupWithOk.open(data)
-      tagClass.textContent = 'Сохранить'
-    },
 
-    setLike: (data) => {
+    },
+setLike: (data) => {
       api.setLike(data)
         .then((data) => {
           card.setLikeCounter(data)
@@ -118,7 +115,7 @@ const popupWithInfoForm = new PopupWithForm('.popup_edit-profile', {
         console.log(err);
       })
       .finally(() => {
-        popupWithInfoForm.renderLoading(true)
+        popupWithInfoForm.renderLoading(false)
       })
   }
 })
@@ -137,10 +134,7 @@ api.getInitialData()
   })
 
 const popupWithOk = new PopupWithOk('#popup-delete', {
-
   submit: (data) => {
-    
-
     api.deleteCard(data)
       .then(() => {
         tempCard.deleteCard();
@@ -154,22 +148,10 @@ const popupWithOk = new PopupWithOk('#popup-delete', {
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        popupWithOk.renderLoading(false)
-        popupWithOk.close()
-      })
-
-
-
-  },
+},
 })
 
 popupWithOk.setEventListeners()
-
-
-
-
-
 
 const popupAddCard = new PopupWithForm('#popup-add-card', {
   submit: (data) => {
@@ -184,14 +166,12 @@ const popupAddCard = new PopupWithForm('#popup-add-card', {
         console.log(err);
       })
       .finally(() => {
-        popupAddCard.renderLoading(true)
-        popupAddCard.close()
+        popupAddCard.renderLoading(false)
       })
   }
 })
 
 popupAddCard.setEventListeners()
-
 
 const popupAvatarForm = new PopupWithForm('#popup-avatar', {
   submit: (data) => {
@@ -206,15 +186,14 @@ const popupAvatarForm = new PopupWithForm('#popup-avatar', {
         console.log(err);
       })
       .finally(() => {
-        popupAvatarForm.renderLoading(true)
-        popupAvatarForm.close()
+        popupAvatarForm.renderLoading(false)
       })
   }
 })
 
 avatarEditBtn.addEventListener('click', () => {
   popupAvatarForm.open()
-  popupAvatarButton.textContent = 'Сохранить'
+
 })
 
 popupAvatarForm.setEventListeners()
@@ -227,7 +206,6 @@ profileEditButton.addEventListener('click', () => {
   userJobInput.value = data.about;
   popupWithInfoForm.open();
   formUser.cleanError()
-  popupAddSaveButton.textContent = 'Сохранить'
 })
 
 // deleteButton.addEventListener('click', () => {
@@ -239,7 +217,6 @@ popupCardOpenButton.addEventListener('click', () => {
   formUser.cleanError()
   formAdd.cleanError()
   formAdd.disableButton()
-  tagClass.textContent = 'Сохранить'
 });
 
 

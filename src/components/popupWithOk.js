@@ -2,7 +2,7 @@
 import { Popup } from './Popup.js';
 
 export class PopupWithOk extends Popup {
-  constructor(popupSelector, { submit}) {
+  constructor(popupSelector, { submit }) {
     super(popupSelector);
     this._forms = this._popup.querySelector('.popup__form');
     this._submit = submit;
@@ -15,14 +15,6 @@ export class PopupWithOk extends Popup {
     evt.preventDefault()
     this._submit(this._data);
   }
-
-
-
-  textChanger() {
-    this._button.textContent = 'Удалить'
-  }
-
-
 
   setEventListeners() {
 
